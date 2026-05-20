@@ -1,0 +1,126 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "title": "International Travel to Australia - Year Ending December 2025",
+  "data": {
+    "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/international_travel-2.csv",
+    "format": {
+  "type": "csv",
+  "parse": {
+    "trips_2024": "number", "trips_2025": "number",
+    "trips_change_000": "number", "trips_change_pct": "number",
+    "nights_2024": "number", "nights_2025": "number",
+    "nights_change_000": "number", "nights_change_pct": "number",
+    "spend_2024": "number", "spend_2025": "number",
+    "spend_change_m": "number", "spend_change_pct": "number",
+    "total_spend_2024": "number", "total_spend_2025": "number",
+    "total_spend_change_m": "number", "total_spend_change_pct": "number"
+  }
+}
+  },
+  "vconcat": [
+    {
+      "size": "container",
+      "mark": {"type": "point", "filled": true},
+      "title": "Trips ('000) vs Spend in Australia ($M) — brush to filter bar chart below",
+      "params": [
+        {
+          "name": "brush",
+          "select": {"type": "interval", "encodings": ["x"]}
+        }
+      ],
+      "transform": [
+  {"filter": "datum.country !== 'Total'"},
+  {"filter": {"param": "click"}}
+],
+      "encoding": {
+        "x": {
+          "field": "trips_2025",
+          "type": "quantitative",
+          "title": "Trips ('000)",
+          "axis": {"format": ",.0f"}
+        },
+        "y": {
+          "field": "spend_2025",
+          "type": "quantitative",
+          "title": "Spend in Australia ($M)",
+          "axis": {"format": ",.0f"}
+        },
+        "size": {
+          "field": "nights_2025",
+          "type": "quantitative",
+          "title": "Nights ('000)",
+          "scale": {"range": [50, 600]}
+        },
+        "color": {
+          "condition": {
+            "param": "brush",
+            "field": "country",
+            "type": "nominal",
+            "title": "country",
+            "scale": {
+              "domain": ["New Zealand", "Japan", "Hong Kong", "Singapore", "Malaysia", "Indonesia", "Taiwan", "Thailand","United States of America", "Vietnam", "Philippines", "Korea", "China", "Other Asia", "United Kingdom", "Canada","Germany","Scandinavia","France", "Italy", "Netherlands", "Switzerland", "Other Europe", "Other Countries","India", "Other"],
+              "range": ["#000000", "#E69F00", "#56B4E9", "#009E73", "#F0E442", "#0072B2", "#D55E00", "#CC79A7", "#999999", "#332288","#117733", "#44AA99", "#88CCEE", "#DDCC77", "#CC6677","#882255", "#AA4499", "#661100", "#6699CC", "#888888","#F89C74", "#DCB0F2", "#87C55F", "#9EB9F3", "#FE88B1"]
+            }
+          },
+          "value": "lightgray"
+        },
+        "tooltip": [
+          {"field": "country", "type": "nominal", "title": "Country"},
+          {"field": "region", "type": "nominal", "title": "Region"},
+          {"field": "trips_2025", "type": "quantitative", "title": "Trips ('000)", "format": ",.1f"},
+          {"field": "nights_2025", "type": "quantitative", "title": "Nights ('000)", "format": ",.1f"},
+          {"field": "spend_2025", "type": "quantitative", "title": "Spend ($M)", "format": ",.1f"},
+          {"field": "trips_change_pct", "type": "quantitative", "title": "Trips Change (%)", "format": ".1f"},
+          {"field": "spend_change_pct", "type": "quantitative", "title": "Spend Change (%)", "format": ".1f"}
+        ]
+      }
+    },
+    {
+      "size": "container",
+      "mark": "bar",
+      "title": "Number of Countries by Region — click a bar to filter scatter plot above",
+      "params": [
+        {
+          "name": "click",
+          "select": {"type": "point", "encodings": ["color"]}
+        }
+      ],
+      "transform": [
+  {"filter": "datum.country !== 'Total'"},
+  {"filter": {"param": "brush"}}
+],
+      "encoding": {
+        "x": {
+          "aggregate": "sum",
+          "field": "trips_2025",
+          "type": "quantitative",
+          "title": "Total Trips ('000)",
+          "axis": {"format": ",.0f"}
+        },
+        "y": {
+          "field": "region",
+          "type": "nominal",
+          "title": "Region",
+          "sort": "-x"
+        },
+        "color": {
+          "condition": {
+            "param": "click",
+            "field": "region",
+            "type": "nominal",
+            "scale": {
+              "domain": ["Oceania", "Asia", "Americas", "Europe", "Other"],
+              "range": ["#e7ba52", "#1f77b4", "#aec7e8", "#ff7f0e", "#2ca02c", "#9467bd", "#a7a7a7"]
+            }
+          },
+          "value": "lightgray"
+        },
+        "tooltip": [
+          {"field": "region", "type": "nominal", "title": "Region"},
+          {"aggregate": "sum", "field": "trips_2025", "type": "quantitative", "title": "Total Trips ('000)", "format": ",.1f"},
+          {"aggregate": "sum", "field": "spend_2025", "type": "quantitative", "title": "Total Spend ($M)", "format": ",.1f"}
+        ]
+      }
+    }
+  ]
+}
