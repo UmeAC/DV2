@@ -591,19 +591,19 @@
  
 <!-- ══════════════ VEGA SPECS ══════════════ -->
 <script type="text/javascript">
-  var specMap        = "./js/map_vg.json";
-  var specHeatmap    = "./js/1_vg.json";
-  var specLine       = "./js/tripfrom2019-2024_vg.json";
-  var specScatter    = "./js/backcast_vg.json";
-  var specBoxplot    = "./js/backastboxplot_vg.json";
-  var specSlope      = "./js/daytripsomethig_vg.json";
-  var specIntl       = "./js/international_vg.json";
+  var specMap        = "./js/map.vg.json";
+  var specHeatmap    = "./js/1.vg.json";
+  var specLine       = "./js/tripfrom2019-2024.vg.json";
+  var specScatter    = "./js/backcast.vg.json";
+  var specBoxplot    = "./js/backastboxplot.vg.json";
+  var specSlope      = "./js/daytripsomethig.vg.json";
+  var specIntl       = "./js/international.vg.json";
 
-  vegaEmbed('vis-map',     specMap,     { "actions": false }).catch(console.error);
-  vegaEmbed('vis-heatmap', specHeatmap, { "actions": false }).catch(console.error);
-  vegaEmbed('vis-line',    specLine,    { "actions": false }).catch(console.error);
-  vegaEmbed('vis-scatter', specScatter, { "actions": false }).catch(console.error);
-  vegaEmbed('vis-boxplot', specBoxplot, { "actions": false }).catch(console.error);
-  vegaEmbed('vis-slope',   specSlope,   { "actions": false }).catch(console.error);
-  vegaEmbed('vis-intl',    specIntl,    { "actions": false }).catch(console.error);
+vegaEmbed('#vis-map',     specMap,     { "actions": false }).catch(console.error);
+vegaEmbed('#vis-heatmap', specHeatmap, { "actions": false }).catch(console.error);
+vegaEmbed('#vis-line',    specLine,    { "actions": false }).catch(console.error);
+vegaEmbed('#vis-scatter', specScatter, { "actions": false }).catch(console.error);
+vegaEmbed('#vis-boxplot', specBoxplot, { "actions": false }).catch(console.error);
+vegaEmbed('#vis-slope',   specSlope,   { "actions": false }).catch(console.error);
+vegaEmbed('#vis-intl',    specIntl,    { "actions": false }).catch(console.error);
 </script>
