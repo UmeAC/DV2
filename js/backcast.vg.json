@@ -101,7 +101,7 @@
               "title": "state",
               "scale": {
                 "domain": ["New South Wales", "Victoria", "Western Australia", "Northern Territory", "Tasmania"],
-                "range": ["#", "#54A1BF", "#BF69B1", "#F2790F", "#D93D3D"]
+                "range": ["#3F7EA6", "#54A1BF", "#BF69B1", "#F2790F", "#D93D3D"]
               }
             },
             "tooltip": [
