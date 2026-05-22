@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "title": "International Travel to Australia - Year Ending December 2025",
   "data": {
-    "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/international_travel-2.csv",
+    "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/data/international_travel-2.csv",
     "format": {
   "type": "csv",
   "parse": {
