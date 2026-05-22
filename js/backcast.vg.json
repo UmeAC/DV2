@@ -2,7 +2,7 @@
   "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
   "description": "Interactive scatter plot of Australian daytrip trips vs expenditure by state and year.",
   "data": {
-  "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/daytrip_scatter.csv",
+  "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/data/daytrip_scatter.csv",
   "format": {
     "type": "csv",
     "parse": {
@@ -93,7 +93,7 @@
             }
           ],
           "transform": [{"filter": {"param": "year"}}],
-          "mark": {"type": "circle", "size": 150, "opacity": 0.9},
+          "mark": {"type": "circle", "size": 200, "opacity": 0.9},
           "encoding": {
             "color": {
               "field": "state",
@@ -101,7 +101,7 @@
               "title": "state",
               "scale": {
                 "domain": ["New South Wales", "Victoria", "Western Australia", "Northern Territory", "Tasmania"],
-                "range": ["#7B2D8B", "#2196F3", "#FF9800", "#4CAF50", "#F44336"]
+                "range": ["#", "#54A1BF", "#BF69B1", "#F2790F", "#D93D3D"]
               }
             },
             "tooltip": [
