@@ -7,7 +7,7 @@
     "anchor": "middle"
   },
   "data": {
-    "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/reason_trips.csv",
+    "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/data/reason_trips.csv",
     "format": {
       "type": "csv",
       "parse": {"year": "number", "trips": "number"}
@@ -51,7 +51,7 @@
     {
       "mark": {
         "type": "line",
-        "strokeWidth": 2,
+        "strokeWidth": 4,
         "strokeCap": "round"
       },
       "encoding": {
@@ -79,7 +79,7 @@
           "title": "State",
           "scale": {
             "domain": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "NT", "ACT"],
-            "range": ["#0072B2", "#E69F00", "#009E73", "#D55E00", "#CC79A7", "#56B4E9", "#F0E442", "#999999"]
+            "range": ["#0072B2", "#E69F00", "#009E73", "#858C74", "#CC79A7", "#56B4E9", "#F0E442", "#333333"]
           }
         },
         "opacity": {
@@ -98,7 +98,7 @@
               {"param": "state_hover", "empty": false},
               {"param": "state_click", "empty": false}
             ]},
-            "value": 3
+            "value": 4
           },
           "value": 1.5
         },
@@ -121,18 +121,11 @@
           "select": {"type": "point", "fields": ["state"]}
         }
       ],
-      "mark": {"type": "circle", "size": 80},
+      "mark": {"type": "circle", "size": 100},
       "encoding": {
         "x": {"field": "year", "type": "ordinal"},
         "y": {"field": "total_trips", "type": "quantitative"},
-        "color": {
-          "field": "state",
-          "type": "nominal",
-          "scale": {
-            "domain": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "NT", "ACT"],
-            "range": ["#0072B2", "#E69F00", "#009E73", "#D55E00", "#CC79A7", "#56B4E9", "#F0E442", "#999999"]
-          }
-        },
+        "color": {"field": "state", "type": "nominal"},
         "opacity": {
           "condition": {
             "test": {"or": [
@@ -165,8 +158,8 @@
       "mark": {
         "type": "text",
         "align": "right",
-        "dx": -10,
-        "fontSize": 11,
+        "dx": -12,
+        "fontSize": 12,
         "fontWeight": "bold"
       },
       "encoding": {
@@ -177,55 +170,7 @@
           "type": "quantitative",
           "format": ",.0f"
         },
-        "color": {
-          "field": "state",
-          "type": "nominal",
-          "scale": {
-            "domain": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "NT", "ACT"],
-            "range": ["#0072B2", "#E69F00", "#009E73", "#D55E00", "#CC79A7", "#56B4E9", "#F0E442", "#999999"]
-          }
-        }
-      }
-    },
-    {
-      "transform": [
-        {"filter": "datum.year === 2024"},
-        {
-          "filter": {
-            "or": [
-              {"param": "state_hover", "empty": false},
-              {"param": "state_click", "empty": false}
-            ]
-          }
-        },
-        {
-          "calculate": "datum.total_trips > 0 ? '▲ ' : '▼ '",
-          "as": "arrow"
-        }
-      ],
-      "mark": {
-        "type": "text",
-        "align": "left",
-        "dx": 10,
-        "fontSize": 11,
-        "fontWeight": "bold"
-      },
-      "encoding": {
-        "x": {"field": "year", "type": "ordinal"},
-        "y": {"field": "total_trips", "type": "quantitative"},
-        "text": {
-          "field": "total_trips",
-          "type": "quantitative",
-          "format": ",.0f"
-        },
-        "color": {
-          "field": "state",
-          "type": "nominal",
-          "scale": {
-            "domain": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "NT", "ACT"],
-            "range": ["#0072B2", "#E69F00", "#009E73", "#D55E00", "#CC79A7", "#56B4E9", "#F0E442", "#999999"]
-          }
-        }
+        "color": {"field": "state", "type": "nominal"}
       }
     },
     {
@@ -243,22 +188,45 @@
       "mark": {
         "type": "text",
         "align": "left",
-        "dx": 60,
-        "fontSize": 11,
+        "dx": 12,
+        "fontSize": 12,
+        "fontWeight": "bold"
+      },
+      "encoding": {
+        "x": {"field": "year", "type": "ordinal"},
+        "y": {"field": "total_trips", "type": "quantitative"},
+        "text": {
+          "field": "total_trips",
+          "type": "quantitative",
+          "format": ",.0f"
+        },
+        "color": {"field": "state", "type": "nominal"}
+      }
+    },
+    {
+      "transform": [
+        {"filter": "datum.year === 2024"},
+        {
+          "filter": {
+            "or": [
+              {"param": "state_hover", "empty": false},
+              {"param": "state_click", "empty": false}
+            ]
+          }
+        }
+      ],
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 65,
+        "fontSize": 12,
         "fontWeight": "bold"
       },
       "encoding": {
         "x": {"field": "year", "type": "ordinal"},
         "y": {"field": "total_trips", "type": "quantitative"},
         "text": {"field": "state", "type": "nominal"},
-        "color": {
-          "field": "state",
-          "type": "nominal",
-          "scale": {
-            "domain": ["NSW", "VIC", "QLD", "WA", "SA", "TAS", "NT", "ACT"],
-            "range": ["#0072B2", "#E69F00", "#009E73", "#D55E00", "#CC79A7", "#56B4E9", "#F0E442", "#999999"]
-          }
-        }
+        "color": {"field": "state", "type": "nominal"}
       }
     }
   ],
