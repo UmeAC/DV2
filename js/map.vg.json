@@ -3,7 +3,7 @@
   "height": 500,
   "width": 800,
    "data": {
-    "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/domestic%20dec2024dec2025.csv",
+    "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/data/domestic%20dec2024dec2025.csv",
     "format": {"type": "csv"}
    },
   "title": {
@@ -23,7 +23,7 @@
           "lookup": "properties.name",
           "from": {
             "data": {
-              "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/domestic%20dec2024dec2025.csv"
+              "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/data/domestic%20dec2024dec2025.csv"
             },
             "key": "name",
             "fields": ["Expenditure", "E_change", "night"]
@@ -52,7 +52,7 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/domestic%20dec2024dec2025.csv"
+        "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/data/domestic%20dec2024dec2025.csv"
       },
       "transform": [
         {"filter": "datum.name == 'Australian Capital Territory'"}
@@ -70,7 +70,7 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/domestic%20dec2024dec2025.csv"
+        "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/data/domestic%20dec2024dec2025.csv"
       },
       "mark": {"type": "text", "fontSize": 11, "fontWeight": "bold"},
       "encoding": {
@@ -95,7 +95,7 @@
     },
     {
       "data": {
-        "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/domestic%20dec2024dec2025.csv"
+        "url": "https://raw.githubusercontent.com/UmeAC/DV2/refs/heads/main/data/domestic%20dec2024dec2025.csv"
       },
       "transform": [
         {"filter": "datum.name == 'Australian Capital Territory'"}
